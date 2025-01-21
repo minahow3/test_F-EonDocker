@@ -1,5 +1,9 @@
 # test_F-EonDocker
 
+プロジェクトフォルダ直下で
+$ docker-compose up --build
+で起動可能
+
 2025/01/22
 エラーで止まっている。
 TypeError: Failed to fetch
