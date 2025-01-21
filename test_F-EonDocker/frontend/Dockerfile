@@ -1,5 +1,5 @@
 # 使用するNode.jsのバージョンを指定
-FROM node:16
+FROM node:18
 
 # 作業ディレクトリを設定
 WORKDIR /usr/src/app
