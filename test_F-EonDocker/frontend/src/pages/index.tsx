@@ -9,14 +9,18 @@ export default function Home() {
 
   // コンポーネントがマウントされたときにバックエンドAPIを呼び出す
   useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    console.log(apiUrl);
+
     const fetchData = async () => {
       try {
         // バックエンドAPIからデータを取得
-        const response = await fetch('http://localhost:5000/api/data', {
+        const response = await fetch('${apiUrl}/api/data', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
-        
+        console.log(response);
+
         // レスポンスが正常かどうかをチェック
         if (!response.ok) {
           throw new Error('Network response was not ok');
