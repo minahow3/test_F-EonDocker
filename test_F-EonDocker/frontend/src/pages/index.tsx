@@ -12,7 +12,10 @@ export default function Home() {
     const fetchData = async () => {
       try {
         // バックエンドAPIからデータを取得
-        const response = await fetch('http://localhost:5000/api/data');
+        const response = await fetch('http://localhost:5000/api/data', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
         
         // レスポンスが正常かどうかをチェック
         if (!response.ok) {
