@@ -12,3 +12,7 @@ TypeError: Failed to fetch
 const response = await fetch('http://localhost:5000/api/data)
 
 調査から続きをすること
+→ '$aaa' `$aaa`にしたら治った
+
+2025/01/23
+CORSエラーから逃れられない・・・・
