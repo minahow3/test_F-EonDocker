@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 interface ApiResponse {
   message: string;
@@ -14,23 +15,19 @@ export default function Home() {
 
     const fetchData = async () => {
       try {
-        // バックエンドAPIからデータを取得
-        const response = await fetch(`${apiUrl}/api/data`, {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        });
+        // axiosを使ってバックエンドAPIからデータを取得
+        const response = await axios.get(`${apiUrl}/api/data`);
 
-        console.log(response);
-
-        // レスポンスが正常かどうかをチェック
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const result: ApiResponse = await response.json();  // 型を指定
-        setData(result);  // データをステートに保存
+        // データをステートに保存
+        setData(response.data);
       } catch (error) {
-        console.error('Error fetching data: ', error);
+        if (axios.isAxiosError(error)) {
+          // Axiosエラーの場合、エラーメッセージを取得
+          console.error('Axios Error: ', error.response?.data || error.message);
+        } else {
+          // その他のエラー
+          console.error('Error: ', error);
+        }
       }
     };
 
