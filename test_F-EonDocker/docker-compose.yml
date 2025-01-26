@@ -6,17 +6,11 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-    networks:
-      - app-network
 
   backend:
     build: ./backend
     ports:
       - "5000:5000"
-    networks:
-      - app-network
       
-networks:
-  app-network:
-    driver: bridge
+
       
