@@ -16,3 +16,5 @@ const response = await fetch('http://localhost:5000/api/data)
 
 2025/01/23
 CORSエラーから逃れられない・・・・
+
+バックエンド側のポートの表示範囲をpublicにすることで確認できるようになった
